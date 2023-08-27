@@ -1,91 +1,112 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  -ms-overflow-style:none;
-  scrollbar-width: none;
-}
-*::-webkit-scrollbar{
-  display: none;
-}
-.board {
-  width: 100%;
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  overflow: scroll;
-  background-color: skyblue ;
-  background-position: center;
-  background-size: cover;
+  margin: 0;
+  overflow-y: scroll;
+  color: white;
+  background: rgb(34,193,195);
+background: linear-gradient(13deg, rgba(34,193,195,1) 0%, rgba(180,150,60,1) 83%);
 }
-#todo-form {
-  padding: 32px 32px 0;
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+   margin: 10px;
+  gap: 10px;
 }
-#todo-form input {
-  padding: 12px;
-  margin-right: 12px;
-  width: 225px;
-  border-radius: 4px;
+.card {
+  flex: 1;
+  
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.inputDiv{
+  
+  padding: 10px;
+  
+}
+#taskInput {
+  
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#addTaskButton {
+  
+  padding: 5px 10px;
+  background-color: #3498db;
+  color: white;
   border: none;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  background: white;
-  font-size: 14px;
-  outline: none;
+   cursor: grab;
 }
-#todo-form button {
-  padding: 12px 32px;
-  border-radius: 4px;
+#addTaskButton:hover {
+  background-color: #2980b9;
+}
+.task-block {
+  margin-bottom: 10px;
+  display: flex;
+  padding: 25px 10px;
+  flex-direction: column;
+  align-items: stretch;
+  background:#ffffff;
+  border-radius: 3px ;
+  cursor: move;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
+  gap: 10px;
+}
+.task-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-description {
+  display: none;
+  margin-top: 5px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
   border: none;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  background: white;
-  color: black;
-  font-weight: bold;
-  font-size: 14px;
+  padding: 3px 8px;
+  border-radius: 3px;
   cursor: pointer;
 }
-.lanes{
-  display: flex;
-  align-items: flex-start;
-  justify-content: start;
-  gap: 20px;
-
-  padding: 24px 32px;
-  overflow: scroll;
-  height: 100%;
+.delete-button:hover {
+  background-color: #c0392b;
 }
-.heading {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 8px;
-
-}
-.swim-lane {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  background: white;
-  box-shadow: 0px 5px 15px  rgba(0, 0, 0, 0.25);
-
-  padding: 12px;
-  border-radius: 4px;
-  width: 255px;
-  min-height: 120px;
-  flex-shrink: 0;
-}
-
-.task {
-  background: white;
+.status-card {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  min-height: 200px;
+  min-width: 200px;
+  border-radius: 5px;
+  background-color:rgb(224, 225, 193);
   color: black;
-  box-shadow:0px 5px 15px rgba(0, 0, 0, 0.25); 
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: move;
-
 }
-.is-dragging {
-  scale: 1.05;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  background: rgb(50, 50, 50,);
-  color: white;
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

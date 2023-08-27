@@ -1,64 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Maneger</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="drag.js"></script>
-  <script src="App.js"></script>
- 
- 
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="App.js"></script>
 </head>
 <body>
-    <h1>Task Manager</h1>
-    <div class="board">
-        <form id="todo-form">
-            <input type="text" placeholder="new ..todo " id="todo-input"/>
-            <button type="submit">Add task</button>
-     </form>
-     <div class="lanes">
-        <div class="swim-lane" id="todo-lane">
-            <h3 class="heading">Open</h3>
-            
-            <p class="task" draggable="true">Finish reading Intro to UI/UX</p>
-            <p class="task" draggable="true">Fill out human interest distribution form</p>
-            <p class="task" draggable="true">Call the bank to talk about investmentS</p>
-            </div>
-
-            <div class="swim-lane">
-                <h3 class="heading">IN PROCESS</h3>
-
-                <p class="task" draggable="true"> finsh the calll of that ....</p>
-            </div>
-
-            <div class="swim-lane">
-                <h3 class="heading">IN REVIEW</h3>
-                <p class="task" draggable="true">
-                    
-                </p>
-
-
-            <div class="swim-lane">
-                <h3 class="heading">Done</h3>
-
-               
+    
+</body>
+</html>        
+            <div class="card-container">
+              
+              <div class="card status-card">
+                <p>Open</p>
                 
-
+                <div class="inputDiv">
+                  <input type="text" id="taskInput" placeholder="Enter task">
+                  <button id="addTaskButton" onclick="addTask()">Add Task</button>
+                </div>
+                <div id="taskList">
+                  
+                </div>
+              </div>
+            
+              <div class="status-card" id="inProgressCard" ondrop="handleDrop(event, 'inProgressCard')" ondragover="allowDrop(event)">
+                <p>In Progress</p>
+              </div>
+            
+              <div class="status-card" id="inReviewCard" ondrop="handleDrop(event, 'inReviewCard')" ondragover="allowDrop(event)">
+                <p>In Review</p>
+              </div>
+            
+              <div class="status-card" id="doneCard" ondrop="handleDrop(event, 'doneCard')" ondragover="allowDrop(event)">
+                <p>Done</p>
+              </div>
             </div>
-
-
-
-
-        </div>
-    </div>
-     
-
-    </div>
-  
-    
-    
-  
+            
+            <div class="modal" id="taskModal">
+              <div class="modal-content">
+                <span id="closeModal" style="float: right; cursor: pointer;">Close</span>
+                <h2>Edit Task Description</h2>
+                <textarea id="descriptionTextarea" style="width: 100%; height: 100px;"></textarea>
+                <button id="saveDescriptionButton">Save</button>
+              </div>
+            </div>
+           
 </body>
 </html>
